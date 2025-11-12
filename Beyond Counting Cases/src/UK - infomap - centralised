@@ -1,0 +1,45 @@
+
+from pyvis.network import Network
+from pathlib import Path
+import networkx as nx
+
+def render_pyvis_modules(
+    G: nx.Graph,
+    outputs: Path | str = "../outputs",
+    out_name: str = "uk_citation_network_with_modules.html",
+    height: str = "800px",
+    width: str = "100%",
+    notebook: bool = False
+):
+    """
+    Render a NetworkX graph G (expects node attribute 'module' and optional 'label')
+    to an interactive PyVis HTML file. Returns the output path.
+    """
+    outputs = Path(outputs)
+    outputs.mkdir(parents=True, exist_ok=True)
+
+    # modules -> colors
+    mods = nx.get_node_attributes(G, "module")
+    palette = ["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd",
+               "#8c564b","#e377c2","#7f7f7f","#bcbd22","#17becf"]
+    mod2color = {m: palette[i % len(palette)] for i, m in enumerate(sorted(set(mods.values())))}
+
+    net = Network(height=height, width=width, directed=True, notebook=notebook, cdn_resources="in_line")
+    # Uncomment the next line if you want to keep fixed positions you computed elsewhere:
+    # net.toggle_physics(False)
+
+    for n, d in G.nodes(data=True):
+        m = d.get("module")
+        label = d.get("label", str(n))
+        title = f"{label}<br>Module: {m}"
+        net.add_node(n, label=label, title=title, color=mod2color.get(m), group=m)
+
+    for u, v, a in G.edges(data=True):
+        w = float(a.get("weight", 1.0))
+        net.add_edge(u, v, value=w, title=f"weight: {w}")
+
+    # Write as UTF-8 to avoid Windows cp1252 errors
+    html = net.generate_html(notebook=notebook)
+    out_path = outputs / out_name
+    out_path.write_text(html, encoding="utf-8")
+    return out_path

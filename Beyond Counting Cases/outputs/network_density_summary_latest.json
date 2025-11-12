@@ -1,0 +1,13 @@
+{
+  "nodes": 112,
+  "edges": 176,
+  "density_directed": 0.014157014157014158,
+  "density_undirected": 0.028314028314028315,
+  "weighted_density_directed": 0.014157014157014158,
+  "created": "20250917-141655",
+  "source": "..\\data\\Aus-time-matched simple UK dataset.xlsx",
+  "citer_cols": [
+    2,
+    11
+  ]
+}
