@@ -1,6 +1,6 @@
-# Climate Law Paper – Stats & Communities
+# Beyond Counting Cases: A Structural Comparison of Climate Judgment Networks in Australia and the United Kingdom
 
-This repository contains data, code, and notebooks for analysing climate law judgments and their citation networks.  
+This repository contains data and code for analysing climate law judgments and their citation networks.  
 It is structured to be reproducible, collaborative, and easy to navigate.
 
 ---
