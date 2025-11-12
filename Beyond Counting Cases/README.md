@@ -10,7 +10,6 @@ It is structured to be reproducible, collaborative, and easy to navigate.
 ```
 Climate_Law_Paper_Stats_+_Communities/
 ├── src/                   # Reusable Python modules (e.g., my_utils.py)
-├── notebooks/             # Jupyter notebooks for exploration and analysis
 ├── data/                  # Raw input datasets (Excel/CSV)
 ├── outputs/               # Generated figures, tables, GIFs, reports
 ├── environment.full.yml   # Fully pinned Conda environment (exact rebuild)
