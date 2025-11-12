@@ -13,7 +13,6 @@ Climate_Law_Paper_Stats_+_Communities/
 ├── notebooks/             # Jupyter notebooks for exploration and analysis
 ├── data/                  # Raw input datasets (Excel/CSV)
 ├── outputs/               # Generated figures, tables, GIFs, reports
-├── environment.yml        # Minimal Conda environment (recommended setup)
 ├── environment.full.yml   # Fully pinned Conda environment (exact rebuild)
 └── README.md              # This file
 ```
@@ -25,12 +24,6 @@ Climate_Law_Paper_Stats_+_Communities/
 ### 1. Create a Conda Environment
 From the project root:
 
-```bash
-conda env create -f environment.yml
-conda activate climate-law
-```
-
-> 💡 If you want an *exact* copy of the environment (including all sub-dependencies), use:
 > ```bash
 > conda env create -f environment.full.yml
 > ```
@@ -40,7 +33,7 @@ conda activate climate-law
 jupyter lab
 ```
 
-Then open notebooks from the `notebooks/` folder.
+Then open notebooks.
 
 ---
 
@@ -75,6 +68,6 @@ from my_utils import load_edges_from_excel, build_graph, compute_network_metrics
 
 ---
 
-## 👥 Contributors
-- Your Name Here  
-- (Add collaborators, supervisors, or research assistants as needed)
+## 👥 Contributor
+- Nicholas Young 
+
